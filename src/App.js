@@ -1,28 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Post from "./components/Post";
 import "./App.css";
+import { db, POSTS_COLLECTION_NAME } from "./firebase";
 
 const App = () => {
-  const [posts, setPosts] = useState([
-    {
-      username: "Atharv",
-      caption: "Title 1",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/800px-React-icon.svg.png",
-    },
-    {
-      username: "Omakr",
-      caption: "Title 2",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/800px-React-icon.svg.png",
-    },
-    {
-      username: "Shukla",
-      caption: "Title 3",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/800px-React-icon.svg.png",
-    },
-  ]);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    db.collection(POSTS_COLLECTION_NAME).onSnapshot((snapshot) => {
+      setPosts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+      );
+    });
+  }, []);
 
   return (
     <div className="app">

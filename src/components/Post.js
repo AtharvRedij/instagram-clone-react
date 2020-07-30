@@ -8,8 +8,8 @@ const Post = ({ username, caption, imageUrl }) => {
       <div className="post__header">
         <Avatar
           className="post__avatar"
-          alt="Some User"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/800px-React-icon.svg.png"
+          alt={username}
+          src="/broken-image.jpg"
         />
         <h3>{username}</h3>
       </div>
