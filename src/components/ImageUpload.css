@@ -1,0 +1,13 @@
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  row-gap: 10px;
+}
+
+.image-upload progress {
+  width: 100%;
+}

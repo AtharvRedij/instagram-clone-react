@@ -24,6 +24,7 @@ const SignInModal = ({ open, setOpen }) => {
         placeholder="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        fullWidth={true}
       />
 
       <Input
@@ -31,6 +32,7 @@ const SignInModal = ({ open, setOpen }) => {
         placeholder="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        fullWidth={true}
       />
 
       <Button onClick={signIn}>Sign In</Button>

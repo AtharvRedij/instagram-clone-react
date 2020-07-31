@@ -7,13 +7,42 @@
 }
 
 .app__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   padding: 20px;
   object-fit: contain;
   background-color: white;
   border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.app__header img {
+  object-fit: contain;
+}
+
+.app__posts {
+  padding: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.app_login-to-upload-message {
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .common-modal {
   display: flex;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 500px) {
+  .common-modal {
+    width: 90vw;
+    margin: 0 auto;
+  }
 }
