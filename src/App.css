@@ -6,9 +6,14 @@
   background-color: #fafafa;
 }
 
-.app-header {
+.app__header {
   padding: 20px;
   object-fit: contain;
   background-color: white;
   border-bottom: 1px solid lightgray;
+}
+
+.common-modal {
+  display: flex;
+  flex-direction: column;
 }
