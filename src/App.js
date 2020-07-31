@@ -4,6 +4,7 @@ import SignUpModal from "./components/SignUpModal";
 import SignInModal from "./components/SignInModal";
 import Post from "./components/Post";
 import { db, auth, POSTS_COLLECTION_NAME } from "./firebase";
+import ImageUpload from "./components/ImageUpload";
 import "./App.css";
 
 const App = () => {
@@ -27,18 +28,26 @@ const App = () => {
   }, [user]);
 
   useEffect(() => {
-    db.collection(POSTS_COLLECTION_NAME).onSnapshot((snapshot) => {
-      setPosts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-      );
-    });
+    db.collection(POSTS_COLLECTION_NAME)
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setPosts(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }))
+        );
+      });
   }, []);
 
   return (
     <div className="app">
+      {user ? (
+        <ImageUpload username={user.displayName} />
+      ) : (
+        <h3>Login to upload</h3>
+      )}
+
       <SignInModal open={signInOpen} setOpen={setSignInOpen} />
       <SignUpModal open={signUpOpen} setOpen={setSignUpOpen} />
       <div className="app__header">

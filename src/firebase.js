@@ -22,6 +22,7 @@ export const storage = firebase.storage();
 
 export default firebase;
 
-const BASE_PROJECT_NAME = "instagram-clone-react";
+const BASE_PROJECT_NAME = "instagram-clone-react__";
 
-export const POSTS_COLLECTION_NAME = BASE_PROJECT_NAME + "_posts";
+export const POSTS_COLLECTION_NAME = BASE_PROJECT_NAME + "posts";
+export const POST_IMAGE_STORAGE_NAME = BASE_PROJECT_NAME + "images";
